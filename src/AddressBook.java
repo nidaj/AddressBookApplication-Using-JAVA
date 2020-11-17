@@ -12,34 +12,36 @@ class AddressBook {
 		people.add(new Person("Nida","Jawre","9768334455","nida.jawre@gmail.com","maharashtra","india",421301));
 		people.add(new Person("Taukir","kazi","965987579","taukir.kazi@gmail.com","Ahmadi","kuwait",36361));
 		people.add(new Person("Mayesha","Dolare","48767656","mayesha.dolare@yahoo.com","Abudabi","UAE",307501));
-//		long mobile;
-//		String fname;
-//		String lname;
-//		String emailId;
-//		String state;
-//		String country;
-//		int zipCode;
-//		char ans = 'y';
-//		Scanner sc = new Scanner(System.in);
-//		do {
-//			System.out.println("Enter First Name: ");
-//			fname = sc.next();
-//			System.out.println("Enter Last Name: ");
-//			lname = sc.next();
-//			System.out.println("Enter Mobile Number: ");
-//			mobile = sc.next();
-//			System.out.println("Enter emailId: ");
-//			emailId = sc.next();
-//			System.out.println("Enter state: ");
-//			state = sc.next();
-//			System.out.println("Enter country : ");
-//			country = sc.next();
-//			System.out.println("Enter ZipCode: ");
-//			zipCode = sc.nextInt();
-//			people.add(new Person(fname,lname,mobile,emailId,state,country,zipCode));
-//			System.out.println("Do You want to continue");
-//			ans = sc.next().charAt(0);
-//		}while(ans=='y'||ans=='Y');
+	}
+	public void addNewPerson() {
+		String mobile;
+		String fname;
+		String lname;
+		String emailId;
+		String state;
+		String country;
+		int zipCode;
+		char ans = 'y';
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println("Enter First Name: ");
+			fname = sc.next();
+			System.out.println("Enter Last Name: ");
+			lname = sc.next();
+			System.out.println("Enter Mobile Number: ");
+			mobile = sc.next();
+			System.out.println("Enter emailId: ");
+			emailId = sc.next();
+			System.out.println("Enter state: ");
+			state = sc.next();
+			System.out.println("Enter country : ");
+			country = sc.next();
+			System.out.println("Enter ZipCode: ");
+			zipCode = sc.nextInt();
+			people.add(new Person(fname,lname,mobile,emailId,state,country,zipCode));
+			System.out.println("Do You want to continue (Y/N)");
+			ans = sc.next().charAt(0);
+		}while(ans=='y'||ans=='Y');
 	}
 	public void printAll() {
 		for(Person person:people) {
@@ -123,6 +125,7 @@ class AddressBook {
 	public void update() {
 		Scanner sc = new Scanner(System.in);
 		String fname,lname;
+		int f2 = 0;
 		char ans = 'Y';
 		System.out.println("Enter the Person First Name you want to update:");
 		fname = sc.next();
@@ -132,6 +135,7 @@ class AddressBook {
 			int flag1 = (people.get(i).getFname().compareToIgnoreCase(fname));
 			int flag2 = (people.get(i).getLname().compareToIgnoreCase(lname));
 			if (flag1 == 0 && flag2 == 0 ) {
+				f2=1;
 				System.out.println("\n1. New Mobile Number");
 				System.out.println("2. New State Number");
 				System.out.println("3. New Country Number");
@@ -173,6 +177,9 @@ class AddressBook {
 				}while(ans=='y'||ans=='Y');
 //				sc.close();
 			}
+		}
+		if(f2!=1) {
+			System.out.println("The Person you are searching is not found");
 		}
 	}
 	
